@@ -4,7 +4,6 @@ package student;
  *
  * @author danca
  */
-import java.util.Scanner;
 public class Student {
     //data fields
     private int studentID;
@@ -13,6 +12,20 @@ public class Student {
     private final double SCALE = 4;
     private double gradePointAv;
     Student newStudent;
+    
+    //constructor
+    public Student(){
+        
+    }
+    
+    public Student(int studentID, double creditHours, double points){
+        this.studentID = 9999;
+        this.creditHours = 3;
+        this.points = 12;
+        
+    }
+
+
 
     //getter and setter methods
     public int getStudentID() {
@@ -35,53 +48,29 @@ public class Student {
         return points;
     }
 
-    public void setPoints(double points) {
-        this.points = points;
+    public void setPoints() {
+        points = (creditHours * SCALE);
     }
 
     public double getGradePointAv() {
         return gradePointAv;
     }
 
-    public void setGradePointAv(double gradePointAv) {
+    public void setGradePointAv() {
         gradePointAv = (points / creditHours);
         
         this.gradePointAv = gradePointAv;
     }
     
-    //method to prompt for student data
-    public Student studentInput(){
-    //scanner object
-    Scanner input = new Scanner(System.in);
+    //method to output student data
+    public void studentInput(){
     
-    //input prompts
-    System.out.println("Enter student ID");
-    studentID = input.nextInt();
-    System.out.println("Enter credit hours");
-    creditHours = input.nextDouble();
-    points = (creditHours * SCALE);
-        
-    newStudent = new Student();
-    newStudent.setStudentID(studentID);
-    newStudent.setCreditHours(creditHours);
-    newStudent.setPoints(points);
+    //output messages
+    System.out.println("Student ID " + getStudentID());
+    System.out.println("Credit hours " + getCreditHours());
+    System.out.println("Points " + getPoints());
+    System.out.println("GPA " + getGradePointAv());
     
-    return newStudent;
-    }
-    
-    //method to calculate GPA
-    public void calculateGPA(){
-        gradePointAv = points / creditHours;
-        
-        
-    }
-
-    //toString method to return the data to the object
-    public String toString(){
-     
-        return "Your student ID is \n" + studentID + "\n your credit hours earned "
-                + "are \n" + creditHours + "\n your points earned are \n" + points
-                + "\n and your GPA is \n" + gradePointAv + ".";
     }
     
 }

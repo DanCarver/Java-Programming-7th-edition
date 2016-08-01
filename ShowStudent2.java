@@ -6,13 +6,11 @@ package student;
  * @author danca
  */
 public class ShowStudent2 {
-
-    //constructor
-public ShowStudent2(int studentID, double points, double creditHours){
-    studentID = 9999;
-    points = 12;
-    creditHours = 3;
     
-}
+    public static void main(String args[]){
+        Student student2 = new Student();
+        student2.setGradePointAv();
+        student2.studentInput();
+    }
     
 }
